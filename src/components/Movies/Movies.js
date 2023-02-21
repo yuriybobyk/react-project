@@ -1,40 +1,44 @@
 import {useDispatch, useSelector} from "react-redux";
+import {useSearchParams} from "react-router-dom";
 import {useEffect} from "react";
 import {movieActions} from "../../redux";
-import {useSearchParams} from "react-router-dom";
 import {Movie} from "../Movie/Movie";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import './Movies.css'
+
 
 const Movies = () => {
 
     const dispatch = useDispatch();
-    const {movies} = useSelector(state => state.movies);
 
-    const {page, totalPages} = useSelector(state => state.movies);
+    const {movies, totalPages, page} = useSelector(({movies}) => movies)
+
     console.log(page)
 
     const [query, setQuery] = useSearchParams({page: '1'});
 
-    useEffect(()=>{
-        dispatch(movieActions.getMovies({page: query.get('page')}))
 
-    },[dispatch, query])
+    useEffect(() => {
+        dispatch(movieActions.getAll({page: query.get('page')}))
+        // setParams({page})
+    }, [dispatch, query])
 
     return (
-        <div>
-           <div>{movies.map((movie, index)=><Movie key={index} movie={movie}/>)}</div>
+        <div className={'movies'}>
+            <h2 className={'title'}>Movies</h2>
+            <div className={'content'}>
+                {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
+            </div>
+            <div className={'arrows'}>
             <div>
-                <ArrowBackIosIcon
-                onClick={()=>setQuery(query=>({
-                    page: +query.get('page') - 1
-                }))}/>
+                <ArrowBackIosNewIcon disabled={page => 1} onClick={() => setQuery(query => ({
+                    page: +query.get('page') - 1}))}/>
             </div>
             <div>
-                <ArrowForwardIosIcon
-                onClick={()=>setQuery(query=>({
-                    page:+query.get('page') +1
-                }))}/>
+                <ArrowForwardIosIcon disabled={page => 500} onClick={() => setQuery(query => ({
+                    page: +query.get('page') + 1}))}/>
+            </div>
             </div>
         </div>
     );
