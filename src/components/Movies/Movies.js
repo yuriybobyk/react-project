@@ -6,13 +6,16 @@ import {Movie} from "../Movie/Movie";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Movies.css'
+import Button from '@mui/material-next/Button';
+
+
 
 
 const Movies = () => {
 
     const dispatch = useDispatch();
 
-    const {movies, totalPages, page} = useSelector(({movies}) => movies)
+    const {movies, page} = useSelector(({movies}) => movies)
 
     console.log(page)
 
@@ -21,8 +24,8 @@ const Movies = () => {
 
     useEffect(() => {
         dispatch(movieActions.getAll({page: query.get('page')}))
-        // setParams({page})
     }, [dispatch, query])
+
 
     return (
         <div className={'movies'}>
@@ -32,15 +35,18 @@ const Movies = () => {
             </div>
             <div className={'arrows'}>
             <div>
-                <ArrowBackIosNewIcon disabled={page => 1} onClick={() => setQuery(query => ({
-                    page: +query.get('page') - 1}))}/>
+                <Button disabled={page === 1} >
+                    <ArrowBackIosNewIcon onClick={()=>{setQuery(query=>({page:+query.get('page') - 1}))}}/>
+                </Button>
             </div>
             <div>
-                <ArrowForwardIosIcon disabled={page => 500} onClick={() => setQuery(query => ({
-                    page: +query.get('page') + 1}))}/>
+                <Button disabled={page === 500}  >
+                    <ArrowForwardIosIcon onClick={()=>{setQuery(query=>({page: +query.get('page') +1}))}}/>
+                </Button>
             </div>
             </div>
         </div>
+
     );
 };
 

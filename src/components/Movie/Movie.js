@@ -1,4 +1,6 @@
 import './Movie.css'
+import {NavLink} from "react-router-dom";
+import {Rating} from "@mui/material";
 
 const Movie = ({movie}) => {
 
@@ -7,10 +9,13 @@ const Movie = ({movie}) => {
     const getPoster = `https://image.tmdb.org/t/p/w200${poster_path}`
 
     return (
-        <div className={'movie'}>
+        <div className={'movie'} >
             <h4>{title}</h4>
             <img className={'poster'} src={getPoster} alt={"title"}/>
+            <Rating name="half-rating-read" value={vote_average / 2} precision={0.5} readOnly/>
+            <NavLink className={'link'} to={id.toString()}>More Details</NavLink>
         </div>
+
     );
 };
 

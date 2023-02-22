@@ -1,10 +1,12 @@
-import {Header, Movies} from "../../components";
-import './MoviesPage.css'
+import {Movies} from "../../components";
+
+
+
 
 const MoviesPage = () => {
+
     return (
         <div>
-            <Header/>
             <Movies/>
         </div>
     );

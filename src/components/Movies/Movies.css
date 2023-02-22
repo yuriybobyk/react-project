@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-left: 100px;
+    background-color: var(--background);
 }
 
 .content{
@@ -11,13 +12,16 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+    color: var(--text-primary);
 }
 .title{
     text-align: center;
+    color: var(--text-primary);
 }
 
 .arrows{
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    color: var(--text-primary);
 }
