@@ -4,7 +4,7 @@
 
 .toggle{
     display: flex;
-    position: fixed;
+    position: absolute;
     right:350px;
     top: 30px;
 }

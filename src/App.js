@@ -14,6 +14,7 @@ const App = () => {
     const switchTheme = ()=>{
         const newTheme = theme === 'light'? 'dark' : 'light';
         setTheme(newTheme)
+
     }
 
     const location = useLocation()
