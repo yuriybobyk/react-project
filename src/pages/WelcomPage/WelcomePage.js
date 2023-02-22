@@ -3,6 +3,7 @@ import {FaGithub, FaInstagram, FaTelegram, FaTwitter} from "react-icons/fa";
 import {Switch} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import useLocalStorage from "use-local-storage";
+import {Animated} from "../../components";
 
 const WelcomePage = () => {
 
@@ -15,6 +16,7 @@ const WelcomePage = () => {
 
     const navigate = useNavigate()
     return (
+        <Animated>
         <div className={'container'} data-theme={theme}>
             <h1>Welcome</h1>
            <div className={'box'}>
@@ -38,6 +40,7 @@ const WelcomePage = () => {
                <div className={'signature'}>© 2023 Yurii Bobyk, Inc. <Switch onClick={switchTheme}/></div>
            </div>
         </div>
+        </Animated>
     );
 };
 

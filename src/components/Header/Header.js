@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <div className={'header'}>
             <div className={'left'}>
-                <div>
+                <div className={'home'}>
                     <HomeIcon fontSize={"large"}/>
                 </div>
             </div>

@@ -7,11 +7,11 @@
     text-align: center;
     width: 200px  ;
     text-decoration: none;
-    border: 2px solid black;
+    box-shadow: 0 0 12px var(--border);
     border-radius: 7px;
 }
 
-.link{
+a{
     text-decoration: none;
     margin-bottom: 15px;
 }

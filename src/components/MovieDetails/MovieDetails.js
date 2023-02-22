@@ -3,7 +3,7 @@ import {Rating} from "@mui/material";
 const MovieDetails = ({movieDetails}) => {
 
     const {
-        // budget,
+        budget,
         overview,
         original_language,
         homepage,
@@ -50,7 +50,7 @@ const MovieDetails = ({movieDetails}) => {
                         <div><span>Production countries</span>: {production_countries[0].name}</div>}
                     <div><span>Release date</span>: {release_date}</div>
                     <div><span>Status</span>: {status}</div>
-                    <div><span>Budget</span>: $</div>
+                    <div><span>Budget</span>: ${budget}</div>
                     {homepage &&
                         <div><span>Homepage</span>: <a href={homepage} target={'_blank'} rel="noreferrer">{homepage}</a>
                         </div>}

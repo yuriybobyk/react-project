@@ -13,7 +13,7 @@ const Movie = ({movie}) => {
             <h4>{title}</h4>
             <img className={'poster'} src={getPoster} alt={"title"}/>
             <Rating name="half-rating-read" value={vote_average / 2} precision={0.5} readOnly/>
-            <NavLink className={'link'} to={id.toString()}>More Details</NavLink>
+            <NavLink to={id.toString()}>More Details</NavLink>
         </div>
 
     );

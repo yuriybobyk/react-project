@@ -34,13 +34,13 @@ const Movies = () => {
                 {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
             </div>
             <div className={'arrows'}>
-            <div>
+            <div className={'arrow'}>
                 <Button disabled={page === 1} >
                     <ArrowBackIosNewIcon onClick={()=>{setQuery(query=>({page:+query.get('page') - 1}))}}/>
                 </Button>
             </div>
-            <div>
-                <Button disabled={page === 500}  >
+            <div className={'arrow'}>
+                <Button disabled={page === 500} >
                     <ArrowForwardIosIcon onClick={()=>{setQuery(query=>({page: +query.get('page') +1}))}}/>
                 </Button>
             </div>

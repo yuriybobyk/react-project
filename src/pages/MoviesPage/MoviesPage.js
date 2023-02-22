@@ -1,4 +1,4 @@
-import {Movies} from "../../components";
+import {Animated, Movies} from "../../components";
 
 
 
@@ -6,9 +6,11 @@ import {Movies} from "../../components";
 const MoviesPage = () => {
 
     return (
+        <Animated>
         <div>
             <Movies/>
         </div>
+        </Animated>
     );
 };
 

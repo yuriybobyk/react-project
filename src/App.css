@@ -1,3 +1,10 @@
 .App{
     background-color: var(--background);
 }
+
+.toggle{
+    display: flex;
+    position: fixed;
+    right:350px;
+    top: 30px;
+}

@@ -23,5 +23,14 @@
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.arrow{
+    box-shadow: 0 0 12px var(--border);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--text-primary);
 }
