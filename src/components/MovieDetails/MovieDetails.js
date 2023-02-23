@@ -1,5 +1,8 @@
 import {Rating} from "@mui/material";
 import './MovieDetails.css'
+import {useNavigate} from "react-router-dom";
+import {ArrowBack} from "@mui/icons-material";
+import Button from "@mui/material-next/Button";
 
 const MovieDetails = ({movieDetails}) => {
 
@@ -28,10 +31,16 @@ const MovieDetails = ({movieDetails}) => {
     let genresName = '';
     for (const genre of genres) {
         genresName =  `${genresName} ${genre.name}`;
-
     }
+
+    const navigate = useNavigate()
     return (
         <div className={'movieDetails'}>
+            <div className={'back'}>
+            <Button>
+                <ArrowBack  fontSize={"large"} onClick={()=>navigate('/movies')}/>
+            </Button>
+            </div>
             <img className={'backdrop'} src={getBackdrop} alt={title}/>
             <div className={'details'}>
                 <div>
