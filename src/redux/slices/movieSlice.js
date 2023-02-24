@@ -1,12 +1,12 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {movieService} from "../../services";
+import { movieService} from "../../services";
 
 
 const initialState = {
     movies: [],
     totalPages: null,
     page:1,
-    movieDetails: null
+    movieDetails: null,
 };
 
 
@@ -33,7 +33,8 @@ const getById = createAsyncThunk(
             return rejectWithValue(e.response.data)
         }
     }
-)
+);
+
 
 
 const MovieSlice = createSlice({
@@ -58,6 +59,7 @@ const MovieSlice = createSlice({
             .addCase(getById.fulfilled, (state, action)=>{
                 state.movieDetails = action.payload;
             })
+
 });
 
 const {reducer: movieReducer, actions:{setPage, setMovie}} = MovieSlice;
@@ -66,7 +68,7 @@ const movieActions = {
     getAll,
     getById,
     setMovie,
-    setPage
+    setPage,
 }
 
 export {

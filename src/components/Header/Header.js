@@ -4,7 +4,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import {User} from "../User/User";
 import {useState} from "react";
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
-import {useNavigate} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 
 
 
@@ -19,6 +19,14 @@ const Header = () => {
             <div className={'left'}>
                 <div className={'home'} onClick={()=>navigate('/movies')}>
                     <HomeIcon fontSize={"large"}/>
+                </div>
+            </div>
+            <div className={'main'}>
+                <div>
+                <NavLink to={'movies'}>MOVIES</NavLink>
+                </div>
+                <div>
+                    <NavLink to={'moviesByGenre'}>GENRES</NavLink>
                 </div>
             </div>
             <div className={'right'}>

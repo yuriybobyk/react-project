@@ -1,7 +1,7 @@
 import './App.css';
 import {Route, Routes, useLocation} from "react-router-dom";
 import {MainLayout} from "./layouts";
-import {MovieDetailsPage, MoviesPage, WelcomePage} from "./pages";
+import {GenrePage, MovieDetailsPage, MoviesPage, WelcomePage} from "./pages";
 import useLocalStorage from "use-local-storage";
 import {Switch} from "@mui/material";
 import {AnimatePresence} from "framer-motion";

@@ -1,16 +1,13 @@
-import {Animated, Header, Movies} from "../../components";
-
-
+import {Animated, Movies} from "../../components";
 
 
 const MoviesPage = () => {
 
     return (
         <Animated>
-        <div>
-            <Header/>
-            <Movies/>
-        </div>
+            <div>
+                <Movies/>
+            </div>
         </Animated>
     );
 };
