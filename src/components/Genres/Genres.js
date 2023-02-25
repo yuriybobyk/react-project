@@ -1,22 +1,23 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {genreActions} from "../../redux/slices/genreSlice";
 import {Genre} from "../Genre/Genre";
+import './Genres.css'
+import {movieActions} from "../../redux";
 
 const Genres = () => {
 
-    const {genres} = useSelector(state => state.genres);
+    const {genres} = useSelector(({movies})=>movies);
 
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        dispatch(genreActions.getGenre());
-    })
+        dispatch(movieActions.getGenre());
+    }, [dispatch])
 
     return (
         <div>
-            <div>
-                {genres && genres.map(genre=><Genre key={genre.id} genre={genre}/>)}
+            <div className={'genres'}>
+                {genres && genres.map(genre=> <Genre key={genre.id} genre={genre}/>)}
             </div>
         </div>
     );

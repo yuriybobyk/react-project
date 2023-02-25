@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--background);
+    margin-bottom: 50px;
 }
 
 .left{
@@ -74,4 +75,8 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
+}
+
+.genre_header{
+    color: var(--text-primary);
 }

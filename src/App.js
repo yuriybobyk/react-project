@@ -30,6 +30,8 @@ const App = () => {
             <Route index element={<WelcomePage/>}/>
             <Route path={'movies'} element={<MoviesPage/>}/>
             <Route path={'movies/:id'} element={<MovieDetailsPage/>}/>
+            <Route path={'genres/:genre'} element={<GenrePage/>}/>
+            <Route path={'genres/:genre/:id'} element={<MovieDetailsPage/>}/>
         </Route>
       </Routes>
         </AnimatePresence>

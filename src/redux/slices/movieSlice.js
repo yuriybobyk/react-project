@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import { movieService} from "../../services";
+import {genreService, movieService} from "../../services";
 
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
     totalPages: null,
     page:1,
     movieDetails: null,
+    genres:[]
 };
 
 
@@ -35,6 +36,31 @@ const getById = createAsyncThunk(
     }
 );
 
+const getGenre = createAsyncThunk(
+    'movieSlice/getGenre',
+    async (_, {rejectWithValue})=>{
+        try {
+            let {data} = await genreService.getGenre();
+            return data
+        }catch (e){
+            return rejectWithValue(e.response.data)
+        }
+
+    }
+);
+
+const getMovieByGenre = createAsyncThunk(
+    'movieSlice/getMovieByGenre',
+    async ({id, page}, {rejectWithValue})=>{
+        try {
+            let {data} = await genreService.genreSort(id, page)
+            return data
+        }catch (e){
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
 
 
 const MovieSlice = createSlice({
@@ -59,6 +85,14 @@ const MovieSlice = createSlice({
             .addCase(getById.fulfilled, (state, action)=>{
                 state.movieDetails = action.payload;
             })
+            .addCase(getGenre.fulfilled, (state, action)=>{
+                state.genres = action.payload.genres;
+            })
+            .addCase(getMovieByGenre.fulfilled, (state, action)=>{
+                state.movies = action.payload.results;
+                state.totalPages = 500;
+                state.page = action.payload.page;
+            })
 
 });
 
@@ -69,6 +103,8 @@ const movieActions = {
     getById,
     setMovie,
     setPage,
+    getGenre,
+    getMovieByGenre
 }
 
 export {

@@ -5,12 +5,15 @@ import {User} from "../User/User";
 import {useState} from "react";
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import {NavLink, useNavigate} from "react-router-dom";
+import {Genres} from "../Genres/Genres";
 
 
 
 const Header = () => {
 
     const [user, setUser]= useState(false)
+
+    const [genres, setGenres] = useState(false)
 
     const navigate = useNavigate();
 
@@ -26,7 +29,10 @@ const Header = () => {
                 <NavLink to={'movies'}>MOVIES</NavLink>
                 </div>
                 <div>
-                    <NavLink to={'moviesByGenre'}>GENRES</NavLink>
+                    <div className={'genre_header'} onClick={()=> setGenres((prev)=> !prev)}>
+                        GENRES
+                        {genres && <Genres/>}
+                    </div>
                 </div>
             </div>
             <div className={'right'}>

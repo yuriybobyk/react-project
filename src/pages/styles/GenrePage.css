@@ -1,0 +1,9 @@
+.genre_page{
+    width: 88vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 100px;
+    background-color: var(--background);
+    margin-top: 15px;
+}

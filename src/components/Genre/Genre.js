@@ -1,23 +1,20 @@
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {genreActions} from "../../redux/slices/genreSlice";
 
-const Genre = ({genre}) => {
+const Genre = ({genre: {id, name}}) => {
 
-    const {id, name} = genre;
+
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
-    const getMoviesByGenre = ()=>{
-        dispatch(genreActions.getMoviesByGenreId({id}))
-        navigate(`/moviesByGenre?genreId=${id}`)
-    }
 
     return (
         <div>
-            <div onClick={getMoviesByGenre}>{name}</div>
+            <button onClick={()=>{
+                navigate(`genres/${name.toLowerCase()}?page=1`, {state: id})
+            }}>{name}</button>
         </div>
     );
 };
