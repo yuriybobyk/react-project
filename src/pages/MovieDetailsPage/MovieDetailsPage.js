@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {movieActions} from "../../redux";
-import {Animated, MovieDetails} from "../../components";
+import {Animated, MovieInfo} from "../../components";
 
 const MovieDetailsPage = () => {
 
@@ -16,7 +16,7 @@ const MovieDetailsPage = () => {
     return (
         <Animated>
         <div>
-            {movieDetails &&<MovieDetails movieDetails={movieDetails}/>}
+            {movieDetails &&<MovieInfo movieDetails={movieDetails}/>}
         </div>
         </Animated>
     );

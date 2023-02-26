@@ -2,22 +2,21 @@ import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
 import {useEffect} from "react";
 import {movieActions} from "../../redux";
-import {Movie} from "../Movie/Movie";
+import {MovieListCard} from "../MovieListCard/MovieListCard";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import './Movies.css'
+import './MoviesList.css'
 import Button from '@mui/material-next/Button';
 
 
 
 
-const Movies = () => {
+const MoviesList = () => {
 
     const dispatch = useDispatch();
 
     const {movies, page} = useSelector(({movies}) => movies)
 
-    console.log(page)
 
     const [query, setQuery] = useSearchParams({page: '1'});
 
@@ -31,17 +30,17 @@ const Movies = () => {
         <div className={'movies'}>
             <h2 className={'title'}>Movies</h2>
             <div className={'content'}>
-                {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
+                {movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)}
             </div>
             <div className={'arrows'}>
-            <div className={'arrow'}>
+            <div onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className={'arrow'}>
                 <Button disabled={page === 1} >
-                    <ArrowBackIosNewIcon onClick={()=>{setQuery(query=>({page:+query.get('page') - 1}))}}/>
+                    <ArrowBackIosNewIcon fontSize={"large"} onClick={()=>{setQuery(query=>({page:+query.get('page') - 1}))}}/>
                 </Button>
             </div>
-            <div className={'arrow'}>
-                <Button disabled={page === 500} >
-                    <ArrowForwardIosIcon onClick={()=>{setQuery(query=>({page: +query.get('page') +1}))}}/>
+            <div onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className={'arrow'}>
+                <Button  disabled={page === 500} >
+                    <ArrowForwardIosIcon fontSize={"large"} onClick={()=>{setQuery(query=>({page: +query.get('page') +1}))}}/>
                 </Button>
             </div>
             </div>
@@ -50,4 +49,4 @@ const Movies = () => {
     );
 };
 
-export {Movies};
+export {MoviesList};

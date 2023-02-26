@@ -6,9 +6,9 @@ const User = () => {
     return (
         <div className={'user'}>
             <div className={'ul'}>
-                <div className={'li'}><Face6Icon fontSize={"small"}/>Yurii</div>
-                <div className={'li'}><SettingsIcon fontSize={"small"}/>Settings</div>
-                <div className={'li'}><LogoutIcon fontSize={"small"}/>Logout</div>
+                <div className={'li'}><Face6Icon fontSize={"medium"}/>Yurii</div>
+                <div className={'li'}><SettingsIcon fontSize={"medium"}/>Settings</div>
+                <div className={'li'}><LogoutIcon fontSize={"medium"}/>Logout</div>
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 html{
@@ -17,10 +18,11 @@ html{
 
 :root {
   --background: #DEE3E7;
-  --text-primary: #37474F;
+  --text-primary: black;
   --text-secondary: #8e05c2;
   --accent: #8e05c2;
   --border: #333;
+
 
 
 }

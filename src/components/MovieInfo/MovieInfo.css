@@ -46,7 +46,7 @@
 }
 
 .badge{
-    background: grey;
+    background: darkgoldenrod;
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -66,12 +66,4 @@
 
 a{
     text-decoration: none;
-}
-
-.back{
-    height: 150px;
-}
-
-.back:hover{
-    opacity: 0.7;
 }

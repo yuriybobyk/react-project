@@ -1,13 +1,14 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {genreService, movieService} from "../../services";
+import {genreService, movieService, searchService} from "../../services";
 
 
 const initialState = {
     movies: [],
-    totalPages: null,
     page:1,
     movieDetails: null,
-    genres:[]
+    genres:[],
+    searchResult:[],
+    videosByMovieId:null
 };
 
 
@@ -59,7 +60,21 @@ const getMovieByGenre = createAsyncThunk(
             return rejectWithValue(e.response.data)
         }
     }
-)
+);
+
+const getSearchMovies = createAsyncThunk(
+    'movieSlice/getSearchMovies',
+    async ({query, page}, {rejectWithValue})=>{
+        try {
+            let {data} = await searchService.search(query, page);
+            return data;
+        }catch (e){
+        return rejectWithValue(e.response.data)
+        }
+    }
+
+);
+
 
 
 
@@ -72,6 +87,10 @@ const MovieSlice = createSlice({
         },
         setMovie: (state, action)=>{
             state.movieDetails = action.payload
+        },
+        search: (state)=>{
+            state.searchResult = [];
+            state.totalPages = null;
         }
 
     },
@@ -79,7 +98,6 @@ const MovieSlice = createSlice({
         builder
             .addCase(getAll.fulfilled, (state, action)=>{
                 state.movies = action.payload.results;
-                state.totalPages = 500;
                 state.page = action.payload.page;
             })
             .addCase(getById.fulfilled, (state, action)=>{
@@ -90,13 +108,18 @@ const MovieSlice = createSlice({
             })
             .addCase(getMovieByGenre.fulfilled, (state, action)=>{
                 state.movies = action.payload.results;
-                state.totalPages = 500;
                 state.page = action.payload.page;
             })
+            .addCase(getSearchMovies.fulfilled, (state, action)=>{
+                state.searchResult = action.payload.results;
+                state.page = action.payload.page;
+                state.totalPage = action.payload.total_pages;
+            })
+
 
 });
 
-const {reducer: movieReducer, actions:{setPage, setMovie}} = MovieSlice;
+const {reducer: movieReducer, actions:{setPage, setMovie, search}} = MovieSlice;
 
 const movieActions = {
     getAll,
@@ -104,7 +127,9 @@ const movieActions = {
     setMovie,
     setPage,
     getGenre,
-    getMovieByGenre
+    getMovieByGenre,
+    search,
+    getSearchMovies,
 }
 
 export {

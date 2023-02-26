@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation, useParams, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {Movie} from "../../components";
+import {MovieListCard} from "../../components";
 import {movieActions} from "../../redux";
 import '../styles/GenrePage.css'
 import Button from "@mui/material-next/Button";
@@ -22,8 +22,8 @@ const GenrePage = () => {
             setId(state);
         } else {
             if (genres.length) {
-                const g = genres.find(v => v.name.toLowerCase() === genre);
-                setId(g.id);
+                const genresName = genres.find(genreName => genreName.name.toLowerCase() === genre);
+                setId(genresName.id);
             }
         }
     }, [state, setId, genre, genres]);
@@ -38,17 +38,17 @@ const GenrePage = () => {
         <div className={'genre_page'}>
             <h2 className={'title'}>{genre}</h2>
             <div className={'content'}>
-                {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/> )}
+                {movies && movies.map(movie => <MovieListCard key={movie.id} movie={movie}/> )}
             </div>
             <div className={'arrows'}>
-                <div className={'arrow'}>
-                    <Button disabled={page === 1} >
-                        <ArrowBackIosNewIcon onClick={()=>{setQuery(query=>({page:+query.get('page') - 1}))}}/>
+                <div onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className={'arrow'}>
+                    <Button  disabled={page === 1} >
+                        <ArrowBackIosNewIcon fontSize={"large"} onClick={()=>{setQuery(query=>({page:+query.get('page') - 1}))}} />
                     </Button>
                 </div>
-                <div className={'arrow'}>
+                <div onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className={'arrow'}>
                     <Button disabled={page === 500} >
-                        <ArrowForwardIosIcon onClick={()=>{setQuery(query=>({page: +query.get('page') +1}))}}/>
+                        <ArrowForwardIosIcon fontSize={"large"} onClick={()=>{setQuery(query=>({page: +query.get('page') +1}))}}/>
                     </Button>
                 </div>
             </div>

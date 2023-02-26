@@ -17,10 +17,26 @@
     position: absolute;
     content: '';
     top: -0.7rem;
-    right: 40rem;
+    right: 43rem;
     width: 25px;
     height: 25px;
     transform: rotate(45deg);
     background-color: var(--background);
     color: var(--text-primary);
+}
+
+.genre_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--accent);
+    border: 0;
+    transition: 0.3s;
+}
+
+.genre_button:hover{
+    color: #ff95ad;
+    background-color: firebrick;
+    transition: 0.3s;
 }

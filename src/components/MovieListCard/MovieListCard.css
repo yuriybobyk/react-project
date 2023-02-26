@@ -1,5 +1,5 @@
 .movie{
-    flex: 17%;
+    flex: 18%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,8 +22,15 @@ a{
     width: 120px;
     padding: 7px;
     border-radius: 10px;
-    margin-bottom: 15px;
-    border: 0;
+    margin-bottom: 20px;
     background-color: var(--accent);
+    border: 0;
+    transition: 0.3s;
 
+}
+
+.btn:hover{
+    color: #ff95ad;
+    background-color: firebrick;
+    transition: 0.3s;
 }

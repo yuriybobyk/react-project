@@ -5,7 +5,7 @@
     justify-content: space-between;
     margin-left: 100px;
     background-color: var(--background);
-    margin-top: 15px;
+    margin-top: 45px;
 }
 
 .content{
@@ -15,6 +15,7 @@
     gap: 35px;
     color: var(--text-primary);
     width: 100%;
+    margin-top: 35px;
 }
 .title{
     text-align: center;
@@ -23,8 +24,9 @@
 
 .arrows{
     display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 35px;
     margin-bottom: 15px;
 }
 

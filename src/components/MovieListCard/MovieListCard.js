@@ -1,11 +1,11 @@
-import './Movie.css'
+import './MovieListCard.css'
 import {NavLink,} from "react-router-dom";
 import {Rating} from "@mui/material";
 
 
-const Movie = ({movie}) => {
+const MovieListCard = ({movie}) => {
 
-    const {title, id, poster_path, vote_average, genre_ids} = movie;
+    const {title, id, poster_path, vote_average} = movie;
 
     const getPoster = `https://image.tmdb.org/t/p/w200${poster_path}`
 
@@ -24,4 +24,4 @@ const Movie = ({movie}) => {
     );
 };
 
-export {Movie};
+export {MovieListCard};

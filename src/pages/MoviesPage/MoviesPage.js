@@ -1,4 +1,4 @@
-import {Animated, Movies} from "../../components";
+import {Animated, MoviesList} from "../../components";
 
 
 const MoviesPage = () => {
@@ -6,7 +6,7 @@ const MoviesPage = () => {
     return (
         <Animated>
             <div>
-                <Movies/>
+                <MoviesList/>
             </div>
         </Animated>
     );

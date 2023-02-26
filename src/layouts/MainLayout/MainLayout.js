@@ -1,13 +1,13 @@
 import {Outlet} from "react-router-dom";
-import {Genres, Header} from "../../components";
+import {Footer, Header} from "../../components";
 
 const MainLayout = () => {
 
     return (
         <div>
             <Header/>
-            {/*<Genres/>*/}
             <Outlet/>
+            <Footer/>
         </div>
     );
 };
