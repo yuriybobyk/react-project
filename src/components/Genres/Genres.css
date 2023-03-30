@@ -30,13 +30,14 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background-color: var(--accent);
+    background-color: var(--text-secondary);
     border: 0;
     transition: 0.3s;
+    color: var(--background);
+    font-size: 16px;
 }
 
 .genre_button:hover{
-    color: #ff95ad;
-    background-color: firebrick;
+    opacity: 0.7;
     transition: 0.3s;
 }

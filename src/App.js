@@ -1,10 +1,17 @@
 import './App.css';
+
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
+
 import {MainLayout} from "./layouts";
+
 import {GenrePage, MovieDetailsPage, MoviesPage, SearchPage} from "./pages";
+
 import useLocalStorage from "use-local-storage";
+
 import {Switch} from "@mui/material";
+
 import {AnimatePresence} from "framer-motion";
+
 
 
 const App = () => {
@@ -17,12 +24,14 @@ const App = () => {
 
     }
 
+
+
     const location = useLocation()
 
   return (
     <div className="App" data-theme={theme}>
         <div className={'toggle'}>
-        <Switch onClick={switchTheme}/>
+        <Switch defaultChecked onClick={switchTheme}/>
         </div>
         <AnimatePresence exitBeforeEnter>
       <Routes key={location.pathname} location={location}>

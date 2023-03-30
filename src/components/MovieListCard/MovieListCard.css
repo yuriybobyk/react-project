@@ -8,29 +8,30 @@
     width: 200px  ;
     text-decoration: none;
     box-shadow: 0 0 12px var(--border);
-    border-radius: 7px;
+    border-radius: 15px;
 }
 
-a{
-    color: white;
-}
+/*a{*/
+/*    color: white;*/
+/*}*/
 
 .btn{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
+    width: 150px;
+    font-size: 18px;
     padding: 7px;
     border-radius: 10px;
     margin-bottom: 20px;
     background-color: var(--accent);
     border: 0;
     transition: 0.3s;
+    color: white;
 
 }
 
 .btn:hover{
-    color: #ff95ad;
-    background-color: firebrick;
+    opacity: 0.7;
     transition: 0.3s;
 }

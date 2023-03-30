@@ -4,7 +4,7 @@ import {Footer, Header} from "../../components";
 const MainLayout = () => {
 
     return (
-        <div>
+        <div className={'MainLayout'}>
             <Header/>
             <Outlet/>
             <Footer/>

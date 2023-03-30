@@ -41,7 +41,7 @@ const Header = () => {
                 </div>
             </div>
             <div className={'toggle_text'}>
-                Toggle to change theme >
+                Change theme >
             </div>
             <div className={'right'}>
                 <div className={'user_budge'}  onClick={()=> setUser((prev) => !prev)} >

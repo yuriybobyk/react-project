@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  transition: background-color 300ms linear;
 
 }
 
@@ -19,7 +21,7 @@ html{
 :root {
   --background: #DEE3E7;
   --text-primary: black;
-  --text-secondary: #8e05c2;
+  --text-secondary: #3700B3;
   --accent: #8e05c2;
   --border: #333;
 
@@ -30,7 +32,7 @@ html{
 [data-theme='dark'] {
   --background: #17181c;
   --text-primary: #fff;
-  --text-secondary: #8e05c2;
+  --text-secondary: #03DAC6;
   --accent: #8e05c2;
   --border: #808080;
 

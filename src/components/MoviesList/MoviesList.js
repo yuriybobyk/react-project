@@ -35,12 +35,12 @@ const MoviesList = () => {
             <div className={'arrows'}>
             <div onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className={'arrow'}>
                 <Button disabled={page === 1} >
-                    <ArrowBackIosNewIcon fontSize={"large"} onClick={()=>{setQuery(query=>({page:+query.get('page') - 1}))}}/>
+                    <ArrowBackIosNewIcon  fontSize={"large"} onClick={()=>{setQuery(query=>({page:+query.get('page') - 1}))}}/>
                 </Button>
             </div>
             <div onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className={'arrow'}>
                 <Button  disabled={page === 500} >
-                    <ArrowForwardIosIcon fontSize={"large"} onClick={()=>{setQuery(query=>({page: +query.get('page') +1}))}}/>
+                    <ArrowForwardIosIcon   fontSize={"large"} onClick={()=>{setQuery(query=>({page: +query.get('page') +1}))}}/>
                 </Button>
             </div>
             </div>
